@@ -64,6 +64,8 @@ inline bool tiny_code_reader_read(tiny_code_reader_results_t* results) {
             results_bytes[index] = Wire.read();
         }
     }
+    // Make sure the string is null terminated.
+    results->content_bytes[results->content_length] = 0;
     return true;
 }
 
